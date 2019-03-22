@@ -13,10 +13,8 @@ import (
 )
 
 type serverQueue struct {
-	Queue      *amqphelper.Queue
-	Path       string
-	Exchange   string
-	RoutingKey string
+	Queue *amqphelper.Queue
+	Path  string
 }
 
 func (s *serverQueue) serve(w http.ResponseWriter, r *http.Request) {
@@ -46,8 +44,7 @@ func (s *serverQueue) serve(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte(fmt.Sprintf("{\"Exchange\":\"%s\",\"RoutingKey\":\"%s\"}", s.Exchange, s.RoutingKey)))
-	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(fmt.Sprintf("{\"Exchange\":\"%s\",\"RoutingKey\":\"%s\"}", s.Queue.Config.Exchange, s.Queue.Config.RoutingKey)))
 }
 func logRequest(prefix string, r *http.Request) string {
 	req, _ := httputil.DumpRequest(r, true)
