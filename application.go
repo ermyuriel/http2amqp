@@ -15,7 +15,7 @@ func main() {
 	routingKeys := strings.Split(os.Getenv("AMQP_ROUTING_KEYS"), ",")
 
 	for i := range paths {
-		conf := amqphelper.Configuration{Host: os.Getenv("AMQP_HOST"), ContentType: "application/json", RoutingKey: routingKeys[i], Exchange: exchanges[i]}
+		conf := amqphelper.Configuration{Host: os.Getenv("AMQP_HOST"), ContentType: "application/json", RoutingKey: routingKeys[i], Exchange: exchanges[i], Durable: true}
 		q, err := amqphelper.GetQueue(&conf)
 		if err != nil {
 			log.Panicln(err)
