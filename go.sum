@@ -1,0 +1,6 @@
+github.com/eucj/amqphelper v0.0.0-20190322170735-7456c6641ffe h1:D+VGr68DgCnbN6Qgkiskr3VTRwIc/1ucw+Y2ZL/PUwY=
+github.com/eucj/amqphelper v0.0.0-20190322170735-7456c6641ffe/go.mod h1:ayWw1MGt2Tjj3y5R4pzBSsJJNC1J9kTZORBvVyom3SA=
+github.com/eucj/gostructs v0.0.0-20190312224311-86d8e06ac46f h1:kzk9SndbuDfH3Gf3pSPBF//XEyn0KVZ4JJpf2enap74=
+github.com/eucj/gostructs v0.0.0-20190312224311-86d8e06ac46f/go.mod h1:XrlwBMi1ysdDSXJMqmQFfjSNgcUjwAFjiorwHpChNEY=
+github.com/streadway/amqp v0.0.0-20181205114330-a314942b2fd9 h1:37QTz/gdHBLQcsmgMTnQDSWCtKzJ7YnfI2M2yTdr4BQ=
+github.com/streadway/amqp v0.0.0-20181205114330-a314942b2fd9/go.mod h1:1WNBiOZtZQLpVAyu0iTduoJL9hEsMloAK5XWrtW0xdY=
