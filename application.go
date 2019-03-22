@@ -7,12 +7,9 @@ import (
 	"strings"
 
 	"github.com/eucj/amqphelper"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	godotenv.Load()
-
 	exchanges := strings.Split(os.Getenv("AMQP_EXCHANGES"), ",")
 	paths := strings.Split(os.Getenv("RECEIVE_PATHS"), ",")
 	routingKeys := strings.Split(os.Getenv("AMQP_ROUTING_KEYS"), ",")
