@@ -36,7 +36,7 @@ func (s *serverQueue) serve(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = s.Queue.Publish(message, true, false)
+	err = s.Queue.Publish(message, nil, true, false)
 
 	if err != nil {
 		w.WriteHeader(http.StatusServiceUnavailable)
