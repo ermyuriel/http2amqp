@@ -40,7 +40,7 @@ func (s *serverQueue) serve(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		w.WriteHeader(http.StatusServiceUnavailable)
-		log.Println(err)
+		logRequest(err.Error(), r)
 		return
 	}
 
