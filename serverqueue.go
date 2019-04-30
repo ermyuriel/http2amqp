@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/eucj/amqphelper"
-	"github.com/eucj/gostructs"
 )
 
 type serverQueue struct {
@@ -27,7 +26,7 @@ func (s *serverQueue) serve(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	toSend := &gostructs.HTTPRequest{Method: r.Method, Header: r.Header, Body: body, Source: r.RemoteAddr, Target: r.RequestURI, Timestamp: time.Now().Unix()}
+	toSend := HTTPRequest{Method: r.Method, Header: r.Header, Body: body, Source: r.RemoteAddr, Target: r.RequestURI, Timestamp: time.Now().Unix()}
 	message, err := json.Marshal(toSend)
 
 	if err != nil {

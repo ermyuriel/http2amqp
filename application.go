@@ -9,7 +9,18 @@ import (
 	"github.com/eucj/amqphelper"
 )
 
+//HTTPRequest struct will be initialized with data from request, marshalled to JSON and pushed to the configured queues
+type HTTPRequest struct {
+	Method    string              `json:"method"`
+	Header    map[string][]string `json:"header"`
+	Body      interface{}         `json:"body"`
+	Source    string              `json:"source"`
+	Target    string              `json:"target"`
+	Timestamp int64               `json:"timestamp"`
+}
+
 func main() {
+
 	exchanges := strings.Split(os.Getenv("AMQP_EXCHANGES"), ",")
 	paths := strings.Split(os.Getenv("RECEIVE_PATHS"), ",")
 	routingKeys := strings.Split(os.Getenv("AMQP_ROUTING_KEYS"), ",")
