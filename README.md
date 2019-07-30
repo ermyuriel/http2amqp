@@ -23,7 +23,6 @@ type HTTPRequest struct {
 	Timestamp int64       `json:"timestamp"`
 }
 ```
-
 ## Contributing
 Just tell me what I did wrong.
 
