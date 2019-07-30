@@ -13,8 +13,16 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/ermyuriel/amqphelper"
 	lambdaproxy "github.com/ermyuriel/go-lambda-proxy"
-	"github.com/ermyuriel/gostructs"
 )
+
+type HTTPRequest struct {
+	Method    string              `json:"method"`
+	Header    map[string][]string `json:"header"`
+	Body      interface{}         `json:"body"`
+	Source    string              `json:"source"`
+	Target    string              `json:"target"`
+	Timestamp int64               `json:"timestamp"`
+}
 
 const (
 	contentType = "application/json"
@@ -89,7 +97,7 @@ func transformMessage(ctx context.Context) (interface{}, error) {
 			return
 		}
 
-		toSend := gostructs.HTTPRequest{Method: request.Method, Header: request.Header, Body: body, Source: request.RemoteAddr, Target: request.RequestURI, Timestamp: time.Now().Unix()}
+		toSend := HTTPRequest{Method: request.Method, Header: request.Header, Body: body, Source: request.RemoteAddr, Target: request.RequestURI, Timestamp: time.Now().Unix()}
 		message, err := json.Marshal(toSend)
 
 		if err != nil {
